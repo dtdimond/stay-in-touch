@@ -1,3 +1,5 @@
 PostitTemplate::Application.routes.draw do
-  root to: 'posts#index'
+  root to: 'contacts#index'
+
+  resources :contacts, except: [:destroy]
 end

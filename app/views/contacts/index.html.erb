@@ -1,0 +1,11 @@
+<h3>Welcome!</h3>
+
+<p></p>
+
+<% @contacts.each do |contact| %>
+  <div class="row">
+    <div class='span8 well'>
+      <p><%= contact.contact_name %></p>
+    </div>
+  </div>
+<% end %>
