@@ -1,18 +1,30 @@
 <a href="/contacts/new">link test</a>
 
 <% @contacts.each do |contact| %>
-  <div class="row">
-    <div class='span8 well'>
-      <p><%= contact.contact_name %></p>
-      <% coms = contact.communications %>
-      <% coms = coms.sort_by! do |com| com[:communication_time] end %>
-      <p>
-        <% if coms.last %>
-          Last contact was <%= time_ago_in_words(coms.last.communication_time) %> ago
-        <% else %>
-          Never contacted
-        <% end %>
-      <p>
+  <div class="container">
+    <div class='card card-inverse card-primary'>
+      <div class="card-block">
+        <h4 class="card-text"><%= contact.contact_name %></h4>
+        <% coms = contact.communications %>
+        <%# coms = coms.sort_by! do |com| com[:communication_time] end %>
+        <p class="card-text">
+          <% if coms.last %>
+            Last contact was <%= time_ago_in_words(coms.last.communication_time) %> ago
+          <% else %>
+            Never contacted
+          <% end %>
+        </p>
+      </div>
     </div>
   </div>
 <% end %>
+
+
+<div class="card">
+<img class="card-img-top" data-src="holder.js/100%x180/" alt="Card image cap">
+<div class="card-block">
+<h4 class="card-title">Card title</h4>
+<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<a href="#" class="btn btn-primary">Button</a>
+</div>
+</div>
