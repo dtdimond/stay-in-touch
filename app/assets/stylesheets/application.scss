@@ -11,24 +11,34 @@
  */
 
  @import "bootstrap";
-// @import "self";
-// @import "tree";
 
- .container {
-  margin-left: 135px
+.navbar-default .navbar-brand {
+  padding: 0 16px;
+  box-shadow: inset 0 -2px 0 rgba(146,53,192,0);
+  color: #009900;
+  font-size: 100%;
+  font-weight: normal;
+  line-height: 32px;
+  display: inline-block;
+  padding: 0;
+  margin: 0 16px;
+  text-transform: uppercase;
 }
 
-.navbar .nav > li > a.brand {
-  padding-left: 0px;
+.navbar .nav > li > a {
+  box-shadow: inset 0 -2px 0 rgba(146,53,192,0);
+  color: #009900;
+  font-size: 100%;
+  font-weight: normal;
+  line-height: 32px;
+  display: inline-block;
+  padding: 0;
+  margin: 0 16px;
+  text-transform: uppercase;
 }
 
 .quiet {
   color: #ababab;
-}
-
-div.nav_item {
-  margin-left: 25px;
-  float: left;
 }
 
 .label  {
