@@ -1,20 +1,20 @@
-<div class="well">
-  <%= form_for @user do |f| %>
-    <div class="control-group">
-      <%= f.label :username %>
-      <%= f.text_field :username%>
-    </div> 
-
-    <div class="control-group">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div> 
-
-    <div class="control-group">
-      <%= f.label :confirm_password %>
-      <%= f.password_field :password_confirmation %>
-    </div> 
-
-    <%= f.submit @user.new_record? ? :Register : :Update, class: "btn btn-primary" %>
-    <% end %>
+<div class='container container-narrow'>
+  <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post">
+    <h2 class="title">Sign Up</h2>
+    <input name="utf8" type="hidden" value="&#x2713;" />
+    <input type="hidden" name="authenticity_token" value= <% form_authenticity_token %>>
+    <fieldset class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="user[username]">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="user[password]">
+    <fieldset class="form-group">
+      <label for="password_confirmation">Confirm Password</label>
+      <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+    </fieldset>
+   </fieldset>
+    <input type="submit" value="Register" name="commit" class="btn btn-primary">
+  </form>
 </div>
