@@ -1,32 +1,3 @@
 <%= render "layouts/messages" %>
 <%= render "shared/error_message", obj: @user %>
-
-<!-- Register Form -->
-<div class='container container-narrow'>
-  <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post">
-
-    <!-- Title/misc form requirements -->
-    <h2 class="title">Sign Up</h2>
-    <input name="utf8" type="hidden" value="&#x2713;" />
-    <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
-
-    <!-- Username input -->
-    <fieldset class="form-group">
-      <label class="sign-label" for="username">Username</label>
-      <input type="text" class="form-control" id="username" name="user[username]">
-    </fieldset>
-
-    <!-- Password/confirmation input -->
-    <fieldset class="form-group">
-      <label class="sign-label" for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="user[password]">
-    </fieldset>
-    <fieldset class="form-group">
-      <label class="sign-label" for="password_confirmation">Confirm Password</label>
-      <input type="password" class="form-control" id="password_confirmation" name="user[password_confirmation]">
-    </fieldset>
-
-    <!-- Submit button -->
-    <input type="submit" value="Register" name="commit" class="btn btn-primary">
-  </form>
-</div>
+<%= render "sessions/form", registration: true %>

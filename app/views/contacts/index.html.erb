@@ -1,19 +1,25 @@
-<% @contacts.each do |contact| %>
-  <div class="container">
-    <div class='card card-inverse card-primary'>
-      <div class="card-block">
-        <h4 class="card-text"><%= contact.contact_name %></h4>
-        <% coms = contact.communications %>
-        <%# coms = coms.sort_by! do |com| com[:communication_time] end %>
-        <p class="card-text">
-          <% if coms.last %>
-            Last contact was <%= time_ago_in_words(coms.last.communication_time) %> ago
-          <% else %>
-            Never contacted
-          <% end %>
-        </p>
-      </div>
+<div class="container">
+  <div class="col-xs-6">
+    <div class="row">
+
+      <!-- Each contact has it's own card in it's own row -->
+      <% @contacts.each do |contact| %>
+        <div class='card card-inverse card-primary'>
+          <div class="card-block">
+            <h4 class="card-text"><%= contact.contact_name %></h4>
+            <% coms = contact.communications %>
+            <%# coms = coms.sort_by! do |com| com[:communication_time] end %>
+            <p class="card-text">
+              <% if coms.last %>
+                Last contact was <%= time_ago_in_words(coms.last.communication_time) %> ago
+              <% else %>
+                Never contacted
+              <% end %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+
     </div>
   </div>
-<% end %>
-
+</div>
