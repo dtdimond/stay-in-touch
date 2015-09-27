@@ -1,25 +1,57 @@
 <div class="container">
-  <div class="col-xs-6">
-    <div class="row">
+  <div class="row">
+    <div class="col-xs-7">
+      <h4>Contacts List</h4>
+      <p>Here's who you know and when you last spoke to them.</p>
 
       <!-- Each contact has it's own card in it's own row -->
       <% @contacts.each do |contact| %>
-        <div class='card card-inverse card-primary'>
-          <div class="card-block">
-            <h4 class="card-text"><%= contact.contact_name %></h4>
-            <% coms = contact.communications %>
-            <%# coms = coms.sort_by! do |com| com[:communication_time] end %>
-            <p class="card-text">
-              <% if coms.last %>
-                Last contact was <%= time_ago_in_words(coms.last.communication_time) %> ago
-              <% else %>
-                Never contacted
-              <% end %>
-            </p>
+        <div class='card card-inverse card-success'>
+
+          <div class="card-block card-block-contact text-left">
+            <blockquote class="card-blockquote">
+              <h3><%= contact.contact_name %></h3>
+              <% coms = contact.communications %>
+              <%# coms = coms.sort_by! do |com| com[:communication_time] end %>
+              <footer>
+                <% if coms.last %>
+                  Last contact was <%= time_ago_in_words(coms.last.communication_time) %> ago
+                <% else %>
+                  Never contacted
+                <% end %>
+              </footer>
+            </blockquote>
+          </div>
+
+          <div class="card-block card-block-contact card-block-btns">
+            <!-- Create new communication button -->
+            <a href="/contacts/<%= contact.id %>"  class="btn btn-primary btn-reach-out">Reach out!</a>
+            <a href="/contacts/<%= contact.id %>"  class="btn btn-primary btn-add-com">Add Communication</a>
           </div>
         </div>
       <% end %>
 
     </div>
-  </div>
-</div>
+
+     <div class="col-xs-5">
+        <form class="new_contact" id="new_contact" action="/contacts/new" accept-charset="UTF-8" method="post">
+
+          <!-- Title/misc form requirements -->
+          <h2 class="title">Add new contact</h2>
+          <input name="utf8" type="hidden" value="&#x2713;" />
+          <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+
+          <!-- Username input -->
+          <fieldset class="form-group">
+            <label class="sign-label" for="contact_name">Contact Name</label>
+            <input type="text" class="form-control" id="contact_name" name="contact_name">
+          </fieldset>
+
+          <!-- Submit button -->
+          <input type="submit" value="Register" name="commit" class="btn btn-primary">
+        </form>
+    </div>
+
+ </div> <!-- /row div -->
+</div> <!-- /container div -->
+

@@ -11,4 +11,20 @@ class ContactsController < ApplicationController
   def new
     @contact = Contact.new
   end
+
+  def show
+    @contact = Contact.find(params[:id])
+  end
+
+  def create
+    @contact = Contact.new(contact_params)
+    @contact.user = current_user
+
+    if @contact.save
+      flash[:notice] = "Post was successfully submitted."
+      redirect_to posts_path
+    else
+      render :index
+    end
+  end
 end
