@@ -22,9 +22,13 @@ class ContactsController < ApplicationController
 
     if @contact.save
       flash[:notice] = "Post was successfully submitted."
-      redirect_to posts_path
+      redirect_to contacts_path
     else
       render :index
     end
+  end
+
+  def contact_params
+    params.require(:contact).permit(:contact_name)
   end
 end

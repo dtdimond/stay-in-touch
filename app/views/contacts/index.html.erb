@@ -26,7 +26,7 @@
           <div class="card-block card-block-contact card-block-btns">
             <!-- Create new communication button -->
             <a href="/contacts/<%= contact.id %>"  class="btn btn-primary btn-reach-out">Reach out!</a>
-            <a href="/contacts/<%= contact.id %>"  class="btn btn-primary btn-add-com">Add Communication</a>
+            <a href="/contacts/<%= contact.id %>"  class="btn btn-primary btn-add-com">Edit</a>
           </div>
         </div>
       <% end %>
@@ -34,17 +34,17 @@
     </div>
 
      <div class="col-xs-5">
-        <form class="new_contact" id="new_contact" action="/contacts/new" accept-charset="UTF-8" method="post">
+        <form class="new_contact" id="new_contact" action="/contacts" accept-charset="UTF-8" method="post">
 
           <!-- Title/misc form requirements -->
           <h2 class="title">Add new contact</h2>
           <input name="utf8" type="hidden" value="&#x2713;" />
           <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
 
-          <!-- Username input -->
+          <!-- Contact name input -->
           <fieldset class="form-group">
             <label class="sign-label" for="contact_name">Contact Name</label>
-            <input type="text" class="form-control" id="contact_name" name="contact_name">
+            <input type="text" class="form-control" id="contact_name" name="contact[contact_name]">
           </fieldset>
 
           <!-- Submit button -->
