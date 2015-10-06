@@ -8,6 +8,8 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require_tree .
+ *= require rails_bootstrap_forms
  */
 
  @import "bootstrap";
@@ -51,24 +53,7 @@ body {
   margin: 0 auto;
 }
 
-.title {
-  border-bottom: 1px solid #B8B8B8;
-  padding-bottom: 8px;
-  //color: #443C59;
-  margin-bottom: 24px;
-  margin-top: 24px;
-  line-height: 1.5em;
-  font-size: 30px;
-  text-align: left;
-}
 
-.sign-label {
-  display: inline-block;
-  max-width: 100%;
-  margin-bottom: 5px;
-  font-weight: bold;
-  font-size: 14px;
-}
 
 .btn-register-login {
   background: #5C069A;

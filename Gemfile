@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
-#gem 'sass-rails'
+gem 'sass-rails'
+gem 'haml-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-#gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'sprockets-rails', '~> 2.3.2'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'bcrypt-ruby'
+gem 'bootstrap_form'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

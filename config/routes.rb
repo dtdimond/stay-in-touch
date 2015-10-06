@@ -11,4 +11,6 @@ PostitTemplate::Application.routes.draw do
   #Users
   get '/register', to: 'users#new'
   resources :users, only: [:create, :show, :edit, :update]
+
+  get 'ui(/:action)', controller: 'ui'
 end

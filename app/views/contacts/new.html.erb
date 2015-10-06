@@ -1,9 +1,19 @@
-  <%= form_for @contact do |f| %>
-    <div class="control-group">
-      <%= f.label :name %>
-      <%= f.text_field :contact_name %>
-    </div> 
+<div class="col-xs-5">
+  <form class="new_contact" id="new_contact" action="/contacts" accept-charset="UTF-8" method="post">
 
-    <br/>
-    <%= f.submit @contact.new_record? ? :Create : :Update, class: "btn btn-primary" %>
-  <% end %>
+    <!-- Title/misc form requirements -->
+    <h2 class="title">Add new contact</h2>
+    <input name="utf8" type="hidden" value="&#x2713;" />
+    <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+
+    <!-- Contact name input -->
+    <fieldset class="form-group">
+      <label class="sign-label" for="contact_name">Contact Name</label>
+      <input type="text" class="form-control" id="contact_name" name="contact[contact_name]">
+    </fieldset>
+
+      <!-- Submit button -->
+    <input type="submit" value="Register" name="commit" class="btn btn-primary">
+  </form>
+</div>
+
