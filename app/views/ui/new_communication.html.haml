@@ -1,32 +1,40 @@
 %section.new_communication
-  .col-xs-4.col-xs-offset-4
-    %form.new_contact#new_contact(action="#" accept-charset="UTF-8" method="post")
+  .row
+    .col-md-4.col-md-offset-4
 
-    .row
-      .col-xs-6
-        %h1.title Mom
-      .col-xs-6
-        %h1.title(href="#") Test
 
-    %input(name="utf8" type="hidden" value="&#x2713;")
-    = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
 
-    %fieldset.form-group.row
-      .col-xs-3
-        %label.sign-label(for="contact_name") Name
-      .col-xs-9
-        %input.form-control#contact_name(type="text" name="contact[contact_name]")
 
-    %fieldset.form-group.row
-      .col-xs-3
-        %label.sign-label(for="email") Email
-      .col-xs-9
-        %input.form-control#contact_email(type="email" name="contact[email]")
 
-    %fieldset.form-group.row
-      .col-xs-5
-        %label.sign-label(for="phone_num") Phone Number
-      .col-xs-7
-        %input.form-control#contact_email(type="text" name="contact[phone_num]")
 
-    %input.btn.btn-primary(type="submit" value="Add" name="commit")
+//  .col-xs-4.col-xs-offset-4
+//    %form.new_contact#new_contact(action="#" accept-charset="UTF-8" method="post")
+//
+//    .row
+//      .col-xs-6
+//        %h1.title Mom
+//      .col-xs-6
+//        %h1.title(href="#") Test
+//
+//    %input(name="utf8" type="hidden" value="&#x2713;")
+//    = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
+//
+//    %fieldset.form-group.row
+//      .col-xs-3
+//        %label.sign-label(for="contact_name") Name
+//      .col-xs-9
+//        %input.form-control#contact_name(type="text" name="contact[contact_name]")
+//
+//    %fieldset.form-group.row
+//      .col-xs-3
+//        %label.sign-label(for="email") Email
+//      .col-xs-9
+//        %input.form-control#contact_email(type="email" name="contact[email]")
+//
+//    %fieldset.form-group.row
+//      .col-xs-5
+//        %label.sign-label(for="phone_num") Phone Number
+//      .col-xs-7
+//        %input.form-control#contact_email(type="text" name="contact[phone_num]")
+//
+//    %input.btn.btn-primary(type="submit" value="Add" name="commit")
