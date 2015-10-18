@@ -9,6 +9,7 @@ gem 'sprockets-rails', '~> 2.3.2'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'bcrypt-ruby'
 gem 'bootstrap_form'
+gem 'font-awesome-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
