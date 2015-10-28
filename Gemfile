@@ -22,10 +22,17 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
+group :development, :test do
   gem 'quiet_assets'
   gem 'pry'
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'fabrication'
+  gem 'faker'
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 group :production do
