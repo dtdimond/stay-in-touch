@@ -1,5 +1,7 @@
-PostitTemplate::Application.routes.draw do
+StayInTouch::Application.routes.draw do
   root to: 'pages#front'
+
+  get '/home', to: 'contacts#index'
 
   resources :contacts, except: [:destroy]
 

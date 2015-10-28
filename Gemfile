@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 gem 'sass-rails'
 gem 'haml-rails'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'sprockets-rails', '~> 2.3.2'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'sprockets-rails'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'bcrypt-ruby'
 gem 'bootstrap_form'
@@ -29,6 +29,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'fabrication'
   gem 'faker'
+  gem 'capybara'
 end
 
 group :test do
