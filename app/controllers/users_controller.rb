@@ -11,7 +11,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      flash[:error] = "Please fix the problems below."
       render :new
     end
   end

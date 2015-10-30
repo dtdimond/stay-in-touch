@@ -1,0 +1,5 @@
+%section.error-messages
+  - if obj.errors.any?
+    .squeeze-up
+      .alert.alert-danger(role="alert")
+        %h4 Oops, there were some problems.

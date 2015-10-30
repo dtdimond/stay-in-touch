@@ -39,10 +39,6 @@ describe UsersController do
     context 'with invalid parameters' do
       before { post :create, user: { password: "correct", name: "Name" } }
 
-      it 'sets the flash error' do
-        expect(flash[:error]).not_to be_blank
-      end
-
       it 'renders the new template' do
         expect(response).to render_template :new
       end
@@ -51,10 +47,6 @@ describe UsersController do
     context 'with incorrect password confirmation' do
       before {post :create, user: {username: "one@two.com", password: "correct",
                                    password_confirmation: "notcorrect", name: "Name"}}
-
-      it 'sets the flash error' do
-        expect(flash[:error]).not_to be_blank
-      end
 
       it 'renders the new template' do
         expect(response).to render_template :new
