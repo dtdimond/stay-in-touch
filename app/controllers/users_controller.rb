@@ -7,16 +7,17 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:notice] = "Registration success."
+      flash[:success] = "Registration success. Welcome #{@user.name}"
       session[:user_id] = @user.id
       redirect_to root_path
     else
+      flash[:error] = "Please fix the problems below."
       render :new
     end
   end
 
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation)
+    params.require(:user).permit(:username, :password, :password_confirmation, :name)
   end
 
 end

@@ -2,6 +2,13 @@ require 'spec_helper'
 
 describe SessionsController do
   describe 'GET new' do
+    it 'sets the @user' do
+      #NOTE - this is slightly hacky. We don't actually use the @user,
+      #but we set it so we can use the bootstrap form_for
+      get :new
+      expect(assigns(:user)).to be_a_new(User)
+    end
+
     it 'renders the new template' do
       get :new
       expect(response).to render_template(:new)
