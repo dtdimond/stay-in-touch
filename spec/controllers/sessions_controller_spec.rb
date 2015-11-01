@@ -65,11 +65,6 @@ describe SessionsController do
       expect(session[:user_id]).to be_nil
     end
 
-    it 'sets the flash success message' do
-      post :destroy
-      expect(flash[:success]).not_to be_blank
-    end
-
     it 'redirects to the root_path' do
       post :destroy
       expect(response).to redirect_to root_path

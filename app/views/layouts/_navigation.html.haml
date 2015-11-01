@@ -1,8 +1,8 @@
 .container-fluid.header
-  .row.top-row
+  .row
     %nav.navbar.navbar-dark.bg-inverse
       .col-md-5.col-md-offset-1
-        %a.navbar-brand.green-top-border(href="/") Stay in Touch
+        %a.navbar-brand(href="/") Stay in Touch
       .col-md-5
         %ul.nav.navbar-nav
           - if logged_in?
