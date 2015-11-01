@@ -1,11 +1,8 @@
 class ContactsController < ApplicationController
+  before_action :require_user
+
   def index
-    #Display records only if logged in
-    if logged_in?
-      @contacts = current_user.contacts
-    else
-      @contacts = Contact.none
-    end
+    @contacts = current_user.contacts
   end
 
   def new
@@ -21,14 +18,14 @@ class ContactsController < ApplicationController
     @contact.user = current_user
 
     if @contact.save
-      flash[:notice] = "Post was successfully submitted."
+      flash[:success] = "Contact created."
       redirect_to contacts_path
     else
-      render :index
+      render :new
     end
   end
 
   def contact_params
-    params.require(:contact).permit(:contact_name)
+    params.require(:contact).permit(:contact_name, :phone, :email)
   end
 end

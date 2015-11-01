@@ -1,0 +1,9 @@
+%section.new_contact
+  .row.margin-btm
+    .col-xl-4.col-xl-offset-4.col-lg-5.col-lg-offset-4.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-10.col-xs-offset-1
+      = bootstrap_form_for(@contact, inline_errors: true) do |f|
+        %h1.title New Contact
+        = f.text_field :contact_name, label: "Contact Name"
+        = f.phone_field :phone, label: "Phone Number"
+        = f.email_field :email
+        = f.submit(class: "btn btn-primary")

@@ -1,8 +1,9 @@
 StayInTouch::Application.routes.draw do
+  #Main routes
   root to: 'pages#front'
-
   get '/home', to: 'contacts#index'
 
+  #Contacts
   resources :contacts, except: [:destroy]
 
   #Session routes
@@ -12,7 +13,8 @@ StayInTouch::Application.routes.draw do
 
   #Users
   get '/register', to: 'users#new'
-  resources :users, only: [:create, :show, :edit, :update]
+  resources :users, only: [:create, :show, :edit]
 
+  #Static ui
   get 'ui(/:action)', controller: 'ui'
 end
