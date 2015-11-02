@@ -25,6 +25,15 @@ class ContactsController < ApplicationController
     end
   end
 
+  def edit
+    @contact = Contact.find(params[:id])
+
+    if @contact.user != current_user
+      redirect_to home_path
+      flash[:danger] = "You're not allowed to do that."
+    end
+  end
+
   def contact_params
     params.require(:contact).permit(:contact_name, :phone, :email)
   end

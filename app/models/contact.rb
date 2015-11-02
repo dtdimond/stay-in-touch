@@ -4,4 +4,8 @@ class Contact < ActiveRecord::Base
 
   validates_presence_of :contact_name
   validates_uniqueness_of :contact_name
+
+  def last_communication
+    "2 days ago"
+  end
 end

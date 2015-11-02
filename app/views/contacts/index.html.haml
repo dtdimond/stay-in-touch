@@ -9,55 +9,24 @@
           %a.link-add-contact(href="#{new_contact_path}") Add Contact
       %hr.squeeze-up
 
-      .row
-        .card.card-inverse.card-success
-          .row
-            .col-xs-7.col-sm-8.col-md-8
-              .card-block.card-block-top
-                %h4.card-title Mom
-            .col-xs-5.col-sm-4.col-md-4
-              .card-block.card-block-top.text-right.contact-btn
-                %button.btn.btn-primary.btn-block.btn-sm Contact
-          .row
-            .col-xs-7.col-sm-8.col-md-8
-              .card-block.card-block-bottom
-                %p.card-text Last contacted two days ago.
-            .col-xs-5.col-sm-4.col-md-4
-              .card-block.card-block-bottom.text-right.contact-btn
-                %button.btn.btn-primary.btn-block.btn-sm Edit
-
-      .row
-        .card.card-inverse.card-success
-          .row
-            .col-xs-7.col-sm-8.col-md-8
-              .card-block.card-block-top
-                %h4.card-title Mom
-            .col-xs-5.col-sm-4.col-md-4
-              .card-block.card-block-top.text-right.contact-btn
-                %button.btn.btn-primary.btn-block.btn-sm Contact
-          .row
-            .col-xs-7.col-sm-8.col-md-8
-              .card-block.card-block-bottom
-                %p.card-text Last contacted two days ago.
-            .col-xs-5.col-sm-4.col-md-4
-              .card-block.card-block-bottom.text-right.contact-btn
-                %button.btn.btn-primary.btn-block.btn-sm Edit
-
-      .row
-        .card.card-inverse.card-success
-          .row
-            .col-xs-7.col-sm-8.col-md-8
-              .card-block.card-block-top
-                %h4.card-title Mom
-            .col-xs-5.col-sm-4.col-md-4
-              .card-block.card-block-top.text-right.contact-btn
-                %button.btn.btn-primary.btn-block.btn-sm Contact
-          .row
-            .col-xs-7.col-sm-8.col-md-8
-              .card-block.card-block-bottom
-                %p.card-text Last contacted two days ago.
-            .col-xs-5.col-sm-4.col-md-4
-              .card-block.card-block-bottom.text-right.contact-btn
-                %button.btn.btn-primary.btn-block.btn-sm Edit
-
-
+      - @contacts.each do |contact|
+        .row
+          .card.card-inverse.card-success
+            .row
+              .col-xs-7.col-sm-8.col-md-8
+                .card-block.card-block-top
+                  %h4.card-title= contact.contact_name
+              .col-xs-5.col-sm-4.col-md-4
+                .card-block.card-block-top.text-right.contact-btn
+                  %button.btn.btn-primary.btn-block.btn-sm Contact
+            .row
+              .col-xs-7.col-sm-8.col-md-8
+                .card-block.card-block-bottom
+                  %p.card-text= "Last contacted #{contact.last_communication}  ago."
+              .col-xs-5.col-sm-4.col-md-4
+                .card-block.card-block-bottom.text-right.contact-btn
+                  = link_to("Edit", [:edit, contact], class: "btn btn-primary btn-block btn-sm")
+      - if @contacts.empty?
+        %p You don't have any contacts. You should add one!
+        %i.fa-plus.fa-2x#fa
+          %a(href="#{new_contact_path}") Add Contact!

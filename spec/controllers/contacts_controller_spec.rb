@@ -88,4 +88,39 @@ describe ContactsController do
       let(:action) { post :create }
     end
   end
+
+  describe 'GET edis' do
+    context 'with authentication' do
+      before { set_current_user }
+      let(:contact) { Fabricate(:contact) }
+
+      it 'sets the @contact to the proper contact if user owns it' do
+        current_user.contacts << contact
+        get :edit, id: contact.id
+        expect(assigns(:contact)).to eq(contact)
+      end
+
+      it 'renders the edit template if user owns the contact' do
+        current_user.contacts << contact
+        get :edit, id: contact.id
+        expect(response).to render_template :edit
+      end
+
+      it 'sets the flash danger if user doesnt own the contact' do
+        get :edit, id: contact.id
+        expect(response).to redirect_to home_path
+      end
+
+      it 'redirects to the home_path if user doesnt own the contact' do
+        get :edit, id: contact.id
+        expect(response).to redirect_to home_path
+      end
+    end
+
+    it 'redirects to the root_path if user not logged in' do
+      contact = Fabricate(:contact)
+      get :edit, id: contact.id
+      expect(response).to redirect_to root_path
+    end
+  end
 end
